@@ -1,0 +1,74 @@
+<!-- Making A Container Class In Which Form Will Be There -->
+<div class="container">
+
+  <!-- Adding The Heading Of The Form -->
+    <h3>Payment Form</h3>
+
+  <!-- Making A Diversion In Which We Add Our First Element Receiver Name -->
+ <div class="row">
+   <!-- Adding Payee Name Into Another Diversion -->
+   <div class="form-group col">
+      <label> Payee Name </label>
+      <input class="form-control" (input)="onNameChange($any($event.target).value)" placeholder="yashaswi sharma"/>
+   </div> <!--Closing Form Group Col-->
+    <div class="col">
+      <label><b>Name</b></label>
+      <div>
+        <!-- Using Pipe To Modify Data Of Name And Set It In The TitleCase Manner -->
+        {{name | titlecase}}
+      </div>
+    </div>
+  </div>
+
+    <!-- Making A Diversion In Which We Add Our Second Element Date -->
+  <div class="row">
+  
+    <!-- Adding Payment Date Into Another Diversion -->
+    <div class="form-group col">
+       <label>Payment Date</label>
+       <input type="date" class="form-control" (input)="onChangeDate($any($event.target).value)"/>
+    </div> <!--Closing Form Group Col-->
+    <div class="col">
+      <label><b>Payment Date</b></label>
+    <div>
+        <!-- Using Pipe To Modify Payment Date  &  Use It With The Date Pipe Manner -->
+        {{ date | date : "yyyy, MMMM, dd " }}
+    </div>
+    </div>
+  </div>
+
+    <!-- Making A Diversion In Which We Add Our 3rd Element Amount -->
+
+    <div class="row">
+  
+    <!-- Adding Amount Into Another Diversion -->
+    <div class="form-group col">
+       <label>Amount</label>
+       <input type="number" class="form-control" placeholder="20" (input)="onChangeAmount($any($event.target).value)"/>
+    </div> <!--Closing Form Group Col-->
+    <div class="col">
+      <label><b>Amount</b></label>
+    <div>
+        <!-- Using Pipe To Modify Amount  &  Use It With The Current Pipe Manner -->
+        {{ amount | currency : 'INR' : 'symbol' : '2.2-5'}}
+    </div>
+    </div>  
+  
+    <!-- Making A Diversion In Which We Add Our 4th Element Miles -->  
+  
+    <div class="row">
+  
+    <!-- Adding Payee Name Into Another Diversion -->
+    <div class="form-group col">
+       <label>Miles</label>
+       <input type="number" class="form-control" placeholder="00" (input)="onChangeMiles($any($event.target).value)"/>
+    </div> <!--Closing Form Group Col-->
+    <div class="col">
+      <label><b>Kilometers</b></label>
+    <div> <!--Puuting A Condition Here That If Miles Enetered By User Is Less Than 10 It Should Not Be Displayed-->
+        <!-- Using Pipe To Modify Payment Date  &  Use It With The Date Pipe Manner -->
+        {{ miles | convert : "cm" | number : "1.0-2"  }}
+    </div>
+    </div>  
+  </div>
+</div> 
